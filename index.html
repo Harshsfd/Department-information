@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE DEPARTMENT</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        .logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 10%;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        ul {
+            text-align: left;
+            width: auto;
+
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 0 16px;
+        }
+
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .title {
+            color: grey;
+        }
+
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #555;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .card {
+            background-color: #000;
+            color: white;
+        }
+
+        .button:hover {
+            background-color: gold;
+            color: black;
+        }
+
+        #footer {
+            background: black;
+            padding: 0 0 30px 0;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        #footer .footer-newsletter {
+            padding: 50px 0;
+            background: #05579e;
+        }
+
+        #footer .footer-newsletter h4 {
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            padding: 0;
+            line-height: 1;
+            font-weight: 600;
+        }
+
+        #footer .footer-newsletter form {
+            margin-top: 30px;
+            background: #fff;
+            padding: 6px 10px;
+            position: relative;
+            border-radius: 50px;
+        }
+
+        #footer .footer-newsletter form input[type=email] {
+            border: 0;
+            padding: 4px;
+            width: calc(100% - 100px);
+        }
+
+        #footer .footer-newsletter form input[type=submit] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            border: 0;
+            background: none;
+            font-size: 16px;
+            padding: 0 20px;
+            margin: 3px;
+            background: #f6b024;
+            color: #fff;
+            transition: 0.3s;
+            border-radius: 50px;
+        }
+
+        #footer .footer-newsletter form input[type=submit]:hover {
+            background: #a32c30;
+        }
+
+        #footer .footer-top {
+            background-image: url('images/meetings-bg.jpg');
+            padding: 60px 0 30px 0;
+        }
+
+        #footer .footer-top .footer-info {
+            margin-bottom: 30px;
+        }
+
+        #footer .footer-top .footer-info h3 {
+            font-size: 18px;
+            margin: 0 0 20px 0;
+            padding: 2px 0 2px 0;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        #footer .footer-top .footer-info p {
+            font-size: 14px;
+            line-height: 24px;
+            margin-bottom: 0;
+            font-family: "Raleway", sans-serif;
+            color: #fff;
+        }
+
+        #footer .footer-top .social-links a {
+            font-size: 16px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            line-height: 1;
+            padding: 10px 0;
+            margin-right: 4px;
+            border-radius: 50%;
+            text-align: center;
+            width: 36px;
+            height: 36px;
+            transition: 0.3s;
+        }
+
+        #footer .footer-top .social-links a:hover {
+            background: #f6b024;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #footer .footer-top h4 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        #footer .footer-top .footer-links {
+            margin-bottom: 30px;
+        }
+
+        #footer .footer-top .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #footer .footer-top .footer-links ul i {
+            padding-right: 2px;
+            color: #5db1f9;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        #footer .footer-top .footer-links ul li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        #footer .footer-top .footer-links ul li:first-child {
+            padding-top: 0;
+        }
+
+        #footer .footer-top .footer-links ul a {
+            color: rgba(255, 255, 255, 0.75);
+            transition: 0.3s;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        #footer .footer-top .footer-links ul a:hover {
+            color: #fff;
+        }
+
+        #footer .footer-top .footer-contact {
+            margin-bottom: 30px;
+        }
+
+        #footer .footer-top .footer-contact p {
+            line-height: 26px;
+        }
+
+        #footer .copyright {
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #footer .credits {
+            padding-top: 5px;
+            text-align: center;
+            font-size: 13px;
+            color: #fff;
+        }
+
+        #footer .credits a {
+            color: #f6b024;
+        }
+        .hello{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="logo.jpg" alt="Italian Trulli" class="logo">
+    <h1>
+        State Institute of
+        Engineering & Technology, Nilokheri</h1>
+    <h2>Approved by <mark> AICTE , New Delhi </mark> & Affiliated to <mark> Kurukshetra University, Kurukshetra </mark>
+    </h2>
+    <hr>
+    <h3>COMPUTER SCIENCE DEPARTMENT</h3>
+    <p>The Department of Computer Engineering offers four years degree program in Computer Engineering. Department has
+        fully
+        equipped computer labs with latest computer systems, laser printers, coloured printers, internet facility etc.
+        The Department has the facility of Multimedia systems and Internet Lab.</p>
+
+
+    <h1>FACULTY MEMBERS</h1>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="divyacse.jpg" alt="dikshacse" width="400" height="400">
+                <div class="container">
+                    <h2>Divya</h2>
+                    <p class="title">M.Tech, B.Tech</p>
+                    <p>Area Of Interest: Simulation,DAA, Data Structure,C++</p>
+                    <p>simplydeevya@gmail.com</p>
+                    <p><button class="button">Contact : 8168047745</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="dikshacse.jpeg" alt="dikshacse" width="400" height="400">
+                <div class="container">
+                    <h2>Deeksha Kanwal</h2>
+                    <p class="title">M.tech, B.tech</p>
+                    <p>Area Of Interest: Computer Networks,Big Data,Data Structure,Software Engg.</p>
+                    <p>deekshakanwal@gmail.com</p>
+                    <p><button class="button">Contact : 8708595018</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="vedprakashcse.jpg" alt="vedprakashcse" width="400" height="400">
+                <div class="container">
+                    <h2>Sh. Ved Parkash</h2>
+                    <p class="title">M.Tech, B.Tech</p>
+                    <p>Area Of Interest: DATA STRUCTURE, JAVA PROGRAMMING , IOT, NETWORKING</p>
+                    <p>vpbhukal24@gmail.com</p>
+                    <p><button class="button">Contact : 8607105413</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="portfolio" class="portfoio" style="background-image: url(images/meetings-bg.jpg)">
+
+        <h1 style="padding-top: 50px;">LABORATORY</h1>
+        <div class="lab">
+            <div class="column">
+                <img src="3.jpg" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="1.jpg" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="2.jpg" style="width:100%">
+            </div>
+        </div>
+        <div class="row portfolio-container">
+            <div class="col-lg-12">
+                <p style="text-align:justify;color:black;">
+                    The department possesses sufficient computer laboratories systems which are used throughout the year
+                    to cater to undergraduate and postgraduate students of the Computer Engineering. The laboratories
+                    are equipped with sufficient hardware and licensed software to run Program specific curriculum and
+                    off-program curriculum. Each lab operates on a specific schedule which is dictated by the
+                    corresponding time table of the specific semester/branch. On a general note, each laboratory course
+                    consists of two sessions (each duration three/four periods) every week. Each laboratory can
+                    accommodate a batch of 18/24 students. Laboratory sessions are conducted to ensure the attainment of
+                    laboratory outcomes which in turn contribute to the program outcomes.
+                    In total we are having five computer labs, each having minimum strength of 18 & maximum strength of
+                    24, with a total System Strength of more than 80 Systems. The student-computer ratio is 1:1. One
+                    Teaching faculty is in-charge of the overall functioning/maintenance of each lab.
+                    Computer Engineering department has established Robotics, Artificial Intelligence and IOT labs with
+                    the collaboration with e-yantra lab setup initiative programme of IIT Bombay.
+                    <br />
+                <h4 style="text-align:justify;color:black;">List of laboratory subjects performed in the labs.</h4>
+                <ul style="text-align:justify;color:black;">
+                    <li>Algorithm Lab.</li>
+                    <li>Object Oriented Programming Lab</li>
+                    <li>Mobile Application Development Lab.v
+                    <li>Unix and Linux Programming Lab.</li>
+                    <li>Data Base Mgt System Lab.</li>
+                    <li>Internet Tech Mgt / Essential of Information Tech Lab.</li>
+                    <li>Project Labs.</li>
+                    <li>Data Structure Lab.</li>
+                    <li>Software Verification Validation / SE Lab.</li>
+                    <li>Artificial Intelligence Lab.</li>
+                    <li>Data Science Lab.</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 footer-links">
+                        <h4>Important Links</h4>
+
+                        <ul>
+                            <li><i class="hello"></i> <a style="text-align: center;"
+                                    href="http://www.haryana.gov.in/" target="_blank">Govt. Of Haryana</a></li>
+                            <li><i class="hello"></i> <a style="text-align: center;"
+                                    href="http://kuk.ac.in/" target="_blank">Kurukshetra University</a></li>
+                            <li><i class="hello"></i> <a style="text-align: center;"
+                                    href="http://nitkkr.ac.in/" target="_blank">NIT,
+                                    Kurukshetra</a></li>
+                            <li><i class="hello"></i> <a style="text-align: center;"
+                                    href="http://www.nitttrchd.ac.in/sitenew1/index11.php" target="_blank"> NITTTR,
+                                    Chandigarh</a></li>
+                            <li><i class="hello"></i> <a style="text-align: center;"
+                                    href="http://www.hstes.org.in" target="_blank">HSTES</a></li>
+                            <li><i class="hello"></i> <a style="text-align: center;"
+                                    href="http://tehadmissions.gov.in" target="_blank">Technical Education,Haryana</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="text-align: center;" class="col-lg-4 col-md-6 footer-links">
+                        <h4>Useful Info</h4>
+                        <ul>
+                            <li><i class="hello"></i> <a style="text-align: center;" href="#">Home</a>
+                            </li>
+                            <li><i class="hello"></i> <a style="text-align: center;" href="#">About Us</a>
+                            </li>
+                            <li><i class="hello"></i> <a style="text-align: center;" href="#">Courses</a>
+                            </li>
+                            <li><i class="hello"></i> <a style="text-align: center;" href="#">Contact
+                                    Us</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-contact">
+                        <h4 style="text-align: center;">Contact Us</h4>
+                        <p>
+                            State Institute Of Engineering &
+                            Technology<br />Nilokheri (Karnal)<br /><br />
+                            <strong>Phone:</strong> 01745-247002,01745-247003<br />
+                            <strong>Fax:</strong> 01745-247002 <br />
+                            <strong>Email:</strong> directorgecnilokheri@gmail.com<br />
+                        </p>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright 2023 <strong><span>SIET Nilokheri</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/anyar-free-multipurpose-one-page-bootstrap-theme/ -->
+                Design By <a href="https://www.linkedin.com/in/hrsh1511">Harsh Bhardwaj</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+</body>
+
+</html>
